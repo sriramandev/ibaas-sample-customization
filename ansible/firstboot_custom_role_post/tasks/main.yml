@@ -1,0 +1,4 @@
+---
+- name: Sample firstboot custom post role
+  debug:
+    msg: "This is a sample debug message from firstboot custom post role"

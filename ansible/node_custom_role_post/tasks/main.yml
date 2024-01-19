@@ -1,0 +1,4 @@
+---
+- name: Sample node custom post role
+  debug:
+    msg: "This is a sample debug message from node custom post role"

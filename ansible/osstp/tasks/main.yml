@@ -1,0 +1,6 @@
+---
+# Only run OSSTP scan for images that TKG can ship
+- import_tasks: osstp.yml
+  when: ansible_distribution == "Ubuntu" or
+        ansible_distribution == "Amazon" or
+        ansible_os_family == "VMware Photon OS"

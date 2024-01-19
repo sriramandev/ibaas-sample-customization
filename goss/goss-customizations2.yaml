@@ -1,0 +1,6 @@
+command:
+  echo 'This is from customizations2':
+  exit-status: 0
+  stdout: []
+  stderr: []
+  timeout: 0

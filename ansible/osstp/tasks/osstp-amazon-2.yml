@@ -1,0 +1,18 @@
+---
+#TODO (trhoden) I think this step is unnecessary and all of these
+#deps are already satisfied
+- name: Install osstp package dependencies
+  yum:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+    - gawk
+    - python2
+    - python-pip
+    - rpm
+
+- name: Run OSSTP tool - Amazon-2
+  command:
+    cmd: osstpclient/bin/vm-inventory.sh amzn
+    chdir: "{{ tmp_dir }}"

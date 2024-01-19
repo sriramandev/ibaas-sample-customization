@@ -1,0 +1,4 @@
+---
+- name: Sample firstboot custom pre role
+  debug:
+    msg: "This is a sample debug message from firstboot custom pre role"

@@ -1,0 +1,5 @@
+---
+- name: Run OSSTP tool - Ubuntu
+  command:
+    cmd: osstpclient/bin/vm-inventory.sh ubuntu
+    chdir: "{{ tmp_dir }}"

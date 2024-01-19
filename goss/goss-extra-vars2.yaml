@@ -1,0 +1,30 @@
+
+# This section contains everything unique to OpenBTR
+btr2:
+  photon:
+    package:
+      ethtool:
+      nfs-utils:
+      sysstat:
+      apparmor-parser:
+      wget:
+      curl:
+    command:
+    service:
+    kernel-param:
+      fs.file-max:
+        value: "96000"
+    ova:
+      kernel-param:
+        net.ipv4.neigh.default.gc_thresh1:
+          value: "4096"
+        net.ipv6.neigh.default.gc_thresh1:
+          value: "4096"
+        net.ipv4.neigh.default.gc_thresh2:
+          value: "8192"
+        net.ipv6.neigh.default.gc_thresh2:
+          value: "8192"
+        net.ipv4.neigh.default.gc_thresh3:
+          value: "16384"
+        net.ipv6.neigh.default.gc_thresh3:
+          value: "16384"

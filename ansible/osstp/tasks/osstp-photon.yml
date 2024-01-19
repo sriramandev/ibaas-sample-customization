@@ -1,0 +1,5 @@
+---
+- name: Run OSSTP tool - Photon
+  command:
+    cmd: osstpclient/bin/vm-inventory.sh photon
+    chdir: "{{ tmp_dir }}"

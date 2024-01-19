@@ -1,0 +1,35 @@
+---
+- name: Create /btr-tmp space
+  mount:
+    path: /btr-tmp
+    src: "tmpfs"
+    fstype: tmpfs
+    state: mounted
+    fstab: /tmp/tmp.fstab
+
+- name: Create directory for OSSTP tool
+  file:
+    path: "{{ tmp_dir }}/osstpclient"
+    state: directory
+    mode: 0700
+
+- name: Grab and unzip OSSTP client
+  unarchive:
+    src: "{{ osstp_url }}"
+    remote_src: yes
+    dest: "{{ tmp_dir }}/osstpclient"
+
+- import_tasks: osstp-amazon-2.yml
+  when: ansible_distribution == "Amazon"
+
+- import_tasks: osstp-photon.yml
+  when: ansible_os_family == "VMware Photon OS"
+
+- import_tasks: osstp-ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- name: Fetch osstp report
+  fetch:
+    src: "{{ tmp_dir }}/osstpmgt.yaml"
+    dest: ./../osstpmgt.yaml
+    flat: yes
